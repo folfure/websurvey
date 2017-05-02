@@ -1,0 +1,34 @@
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Shadow Falcons Survey 2017</title>
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="/static/js/common.js"></script>
+  <script src="/static/js/admin.js"></script>
+
+</head>
+<body class="admin">
+ {% for i,question in enumerate(questions) %}
+	    {% if i==question_id %}
+	    {% set cls='cur_question'%}
+	    {% else %}
+	    {% set cls=''%}
+	    {% end %}
+	    <a class='s{{i}} question {{cls}}' style="display:block" href="javascript:go_to_question( {{ i }} )">{{i}}</a>
+    {% end %}
+    <div onclick="next_question()">
+      <center>
+          <img src='/static/img/next.png' >
+      </center>
+    </div>
+
+  <div id="log_window" class='log'>
+  the log
+  </div>
+
+</body>
+</html>
