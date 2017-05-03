@@ -69,8 +69,8 @@ class SurveyManager(object):
         self.sockets[name] = socket
         socket.player = name
 
-    def publish_player(self, player, type, **kwargs):
-        if player in self.sockets:
+    def publish_players(self, type, **kwargs):
+        for player in self.sockets:
             msg = dict(type=type)
             msg.update(kwargs)
             self.sockets[player].write_message(msg)
@@ -104,7 +104,7 @@ class SurveyManager(object):
         self.question_id = question_id
         self.publish_screen(type="question", **self.questions[self.question_id])
         self.publish_admin(type="question", **self.questions[self.question_id])
-        self.publish_player(type="question", **self.questions[self.question_id])
+        self.publish_players(type="question", **self.questions[self.question_id])
 
 
     def __del__(self):

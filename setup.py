@@ -6,7 +6,7 @@ this_dir = os.path.abspath(os.path.dirname(__file__))
 with open(os.path.join(this_dir, 'README.md'), 'r') as f:
     long_description = f.read()
 
-setup(name='boa',
+setup(name='websurvey',
       version=open("websurvey/_version.py").readlines()[-1].split()[-1].strip("\"'"),
       author='Olivier Feys',
       # TODO Provide a support mailbox for our products
@@ -14,7 +14,6 @@ setup(name='boa',
       description="Websockets based webapp for making real time surveys",
       long_description=long_description,
       # TODO Package to artifactory and assert that bamboo will keep it up to date
-      download_url='http://www.engie.com',
       classifiers=[
           "Development Status :: 3 - Alpha",
           "Intended Audience :: Developers"
